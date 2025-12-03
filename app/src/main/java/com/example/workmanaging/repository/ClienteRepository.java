@@ -6,7 +6,6 @@ import com.example.workmanaging.model.dao.ClienteDao;
 import com.example.workmanaging.model.database.AppDatabase;
 import com.example.workmanaging.model.entity.Cliente;
 import java.util.List;
-import java.util.concurrent.Future;
 
 public class ClienteRepository {
     private ClienteDao mClienteDao;

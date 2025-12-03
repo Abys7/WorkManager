@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/prof_sw_architect"
+        android:title="Software Architect" />
+    <item
+        android:id="@+id/prof_ux_ui_designer"
+        android:title="UX/UI Designer" />
+    <item
+        android:id="@+id/prof_web_developer"
+        android:title="Sviluppatore Web" />
+    <item
+        android:id="@+id/prof_mobile_developer"
+        android:title="Mobile Developer" />
+    <item
+        android:id="@+id/prof_video_maker"
+        android:title="Video Maker" />
+</menu>

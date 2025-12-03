@@ -10,15 +10,36 @@
     android:background="@drawable/settings_item_background"
     android:padding="16dp">
 
-    <View
-        android:id="@+id/client_icon"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_client_image"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="@drawable/ic_launcher_background"
-        android:backgroundTint="@color/light_gray"
+        app:cardCornerRadius="25dp"
+        app:cardElevation="0dp"
+        app:strokeWidth="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_client_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tv_client_initial"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:background="@color/petrol_green"
+            android:visibility="gone"/>
+
+    </com.google.android.material.card.MaterialCardView>
 
     <TextView
         android:id="@+id/tv_client_name"
@@ -30,7 +51,7 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/client_icon"
+        app:layout_constraintStart_toEndOf="@id/card_client_image"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -42,7 +63,7 @@
         android:textColor="@color/gray"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/client_icon"
+        app:layout_constraintStart_toEndOf="@id/card_client_image"
         app:layout_constraintTop_toBottomOf="@id/tv_client_name" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

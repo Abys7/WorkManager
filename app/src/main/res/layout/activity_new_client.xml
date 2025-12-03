@@ -30,7 +30,24 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Name -->
+            <ImageView
+                android:id="@+id/iv_client_image_preview"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/edit_text_background"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_profile_placeholder"/>
+
+            <Button
+                android:id="@+id/btn_upload_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Upload Image"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="24dp"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -48,7 +65,6 @@
                 android:textColorHint="@color/gray"
                 android:hint="Enter client name" />
 
-            <!-- Company -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -67,7 +83,6 @@
                 android:textColorHint="@color/gray"
                 android:hint="Enter company name" />
 
-            <!-- Email -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -87,7 +102,6 @@
                 android:textColorHint="@color/gray"
                 android:hint="Enter email" />
 
-            <!-- Phone -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -107,7 +121,6 @@
                 android:textColorHint="@color/gray"
                 android:hint="Enter phone number" />
 
-            <!-- Description -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

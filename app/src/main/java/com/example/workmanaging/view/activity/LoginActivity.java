@@ -31,9 +31,8 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Apply Dark Mode Preference
         SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
-        boolean isDarkMode = prefs.getBoolean(KEY_DARK_MODE, false); // Default false = Light Mode
+        boolean isDarkMode = prefs.getBoolean(KEY_DARK_MODE, false);
         if (isDarkMode) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         } else {

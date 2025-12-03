@@ -103,7 +103,7 @@ public class NewProjectActivity extends AppCompatActivity {
     
     private void loadProjectData(int userId) {
         progettoViewModel.getProjectsForUser(userId).observe(this, projects -> {
-            if (projectToEdit == null) { // Load only once
+            if (projectToEdit == null) {
                 for (Progetto p : projects) {
                     if (p.progettoId == editProjectId) {
                         projectToEdit = p;
@@ -129,7 +129,7 @@ public class NewProjectActivity extends AppCompatActivity {
         if (projectToEdit != null && projectToEdit.clienteId != null && !clientList.isEmpty()) {
             for (int i = 0; i < clientList.size(); i++) {
                 if (clientList.get(i).clienteId == projectToEdit.clienteId) {
-                    spinnerClients.setSelection(i + 1); // +1 because of "None"
+                    spinnerClients.setSelection(i + 1);
                     break;
                 }
             }
@@ -167,7 +167,6 @@ public class NewProjectActivity extends AppCompatActivity {
         }
 
         if (editProjectId != -1 && projectToEdit != null) {
-            // Update
             projectToEdit.titolo = title;
             projectToEdit.descrizione = desc;
             if (!tvStartDate.getText().toString().equals("Select Start Date")) {
@@ -185,14 +184,10 @@ public class NewProjectActivity extends AppCompatActivity {
             projectToEdit.stato = calculateStatus(projectToEdit.inizio, projectToEdit.scadenza);
             progettoViewModel.update(projectToEdit);
             
-            // Log action
-            // ... (implement logging for update if needed)
-
             Toast.makeText(this, "Project updated", Toast.LENGTH_SHORT).show();
             finish();
 
         } else {
-            // Insert
             Progetto newProject = new Progetto();
             newProject.userId = userId;
             newProject.titolo = title;

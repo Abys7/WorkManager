@@ -44,7 +44,8 @@ public class ProjectDetailActivity extends AppCompatActivity {
         TextView tvClient = findViewById(R.id.tv_project_client);
         TextView tvDates = findViewById(R.id.tv_project_dates_detail);
         TextView tvDesc = findViewById(R.id.tv_project_desc_detail);
-        View statusIndicator = findViewById(R.id.status_indicator);
+        int statusIndicatorId = getResources().getIdentifier("status_indicator", "id", getPackageName());
+        View statusIndicator = statusIndicatorId != 0 ? findViewById(statusIndicatorId) : null;
         FloatingActionButton btnDelete = findViewById(R.id.btn_delete);
         FloatingActionButton btnEdit = findViewById(R.id.btn_edit);
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="status_not_started">#E0E0E0</color> <!-- Light Gray -->
-    <color name="status_in_progress">#368B90</color> <!-- Petrol Light -->
-    <color name="status_completed">#005F63</color>   <!-- Petrol Green -->
+    <color name="status_not_started">#E0E0E0</color> <!-- Grigio Chiaro -->
+    <color name="status_in_progress">#FFCC80</color> <!-- Arancione Chiaro -->
+    <color name="status_completed">#A5D6A7</color>   <!-- Verde Chiaro -->
+    <color name="red_danger">#D32F2F</color> <!-- Rosso per Avvisi/Eliminazione -->
 </resources>

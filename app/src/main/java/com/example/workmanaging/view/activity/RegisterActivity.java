@@ -65,12 +65,10 @@ public class RegisterActivity extends AppCompatActivity {
             return;
         }
 
-        // Check if username already exists
         userViewModel.getUserByUsername(username).observe(this, existingUser -> {
             if (existingUser != null) {
                 Toast.makeText(this, "Username already exists", Toast.LENGTH_SHORT).show();
             } else {
-                // Check if email already exists (optional but good practice since it's unique in DB)
                 userViewModel.getUserByEmail(email).observe(this, existingEmailUser -> {
                     if (existingEmailUser != null) {
                         Toast.makeText(this, "Email already registered", Toast.LENGTH_SHORT).show();
@@ -86,7 +84,7 @@ public class RegisterActivity extends AppCompatActivity {
         User newUser = new User();
         newUser.email = email;
         newUser.nomeUtente = username;
-        newUser.password = password; // Will be hashed in ViewModel
+        newUser.password = password;
 
         userViewModel.insert(newUser);
         Toast.makeText(this, "Registration successful", Toast.LENGTH_SHORT).show();

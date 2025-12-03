@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/app_background"
@@ -10,7 +11,7 @@
         android:id="@+id/tv_detail_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Selected job"
+        android:text="@string/selected_job"
         android:textColor="@color/text_primary"
         android:textSize="32sp"
         android:textStyle="bold"
@@ -18,82 +19,111 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- Status Indicator Dot -->
-    <View
-        android:id="@+id/status_indicator"
-        android:layout_width="16dp"
-        android:layout_height="16dp"
-        android:background="@drawable/status_dot_background"
-        android:layout_marginStart="16dp"
-        app:layout_constraintStart_toEndOf="@id/tv_detail_title"
-        app:layout_constraintTop_toTopOf="@id/tv_detail_title"
-        app:layout_constraintBottom_toBottomOf="@id/tv_detail_title"/>
-
-    <!-- Project Image Placeholder (Large) -->
-    <View
-        android:id="@+id/project_image_large"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/settings_item_background"
-        android:backgroundTint="@color/petrol_green_light"
-        app:layout_constraintTop_toBottomOf="@id/tv_detail_title"/>
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="24dp"
-        app:layout_constraintBottom_toTopOf="@id/btn_delete"
-        app:layout_constraintTop_toBottomOf="@id/project_image_large">
+        android:clipToPadding="false"
+        app:layout_constraintTop_toBottomOf="@id/tv_detail_title"
+        app:layout_constraintBottom_toTopOf="@+id/btn_delete">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@drawable/settings_item_background"
-            android:padding="16dp">
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_title"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary" />
 
             <TextView
                 android:id="@+id/tv_project_title_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:background="@drawable/settings_item_background"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/text_primary"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                tools:text="Project Title" />
+
+            <View
+                android:id="@+id/status_indicator"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/status_dot_background" />
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Project Title"
-                android:textSize="24sp"
+                android:text="@string/label_client"
                 android:textStyle="bold"
-                android:textColor="@color/text_primary"/>
+                android:textColor="@color/text_primary"
+                android:layout_marginTop="16dp" />
 
             <TextView
                 android:id="@+id/tv_project_client"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:background="@drawable/settings_item_background"
+                android:layout_marginTop="4dp"
+                android:drawablePadding="12dp"
+                android:gravity="center_vertical"
+                android:textColor="@color/gray"
+                android:textSize="16sp"
+                app:drawableStartCompat="@drawable/ic_clients"
+                app:drawableTint="@color/gray"
+                tools:text="Client: -" />
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Client: -"
-                android:textSize="16sp"
-                android:textColor="@color/gray"
-                android:layout_marginTop="8dp"/>
+                android:text="@string/label_dates"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:layout_marginTop="16dp" />
 
             <TextView
                 android:id="@+id/tv_project_dates_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:background="@drawable/settings_item_background"
+                android:layout_marginTop="4dp"
+                android:drawablePadding="12dp"
+                android:gravity="center_vertical"
+                android:textColor="@color/gray"
+                android:textSize="16sp"
+                app:drawableStartCompat="@drawable/ic_calendar"
+                app:drawableTint="@color/gray"
+                tools:text="Dates: -" />
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Dates: -"
-                android:textSize="16sp"
-                android:textColor="@color/gray"
-                android:layout_marginTop="4dp"/>
-            
-             <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/gray"
-                android:layout_marginVertical="12dp"/>
+                android:text="@string/label_description"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:layout_marginTop="16dp" />
 
             <TextView
                 android:id="@+id/tv_project_desc_detail"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Description..."
-                android:textSize="16sp"
+                android:padding="12dp"
+                android:background="@drawable/settings_item_background"
+                android:layout_marginTop="4dp"
+                android:lineSpacingExtra="4dp"
                 android:textColor="@color/text_primary"
-                android:layout_marginTop="8dp"/>
+                android:textSize="16sp"
+                tools:text="Description..." />
 
         </LinearLayout>
     </ScrollView>
@@ -103,6 +133,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@android:drawable/ic_menu_edit"
+        android:contentDescription="@string/edit"
         app:backgroundTint="@color/petrol_green"
         app:tint="@color/white"
         android:layout_marginBottom="24dp"
@@ -115,11 +146,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@android:drawable/ic_menu_delete"
+        android:contentDescription="@string/delete"
         app:backgroundTint="@color/petrol_green"
         app:tint="@color/white"
-        android:layout_marginBottom="24dp"
-        android:layout_marginEnd="0dp"
+        android:layout_margin="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
