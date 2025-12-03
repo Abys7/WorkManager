@@ -30,7 +30,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Name -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -47,7 +46,6 @@
                 android:text="Client Name"
                 android:textColor="@color/black"/>
 
-            <!-- Company -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -65,7 +63,6 @@
                 android:text="Company"
                 android:textColor="@color/black"/>
 
-            <!-- Email -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -83,7 +80,6 @@
                 android:text="Email"
                 android:textColor="@color/black"/>
 
-            <!-- Phone -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -101,7 +97,6 @@
                 android:text="Phone"
                 android:textColor="@color/black"/>
 
-            <!-- Description -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

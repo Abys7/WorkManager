@@ -31,7 +31,6 @@ public class SettingsActivity extends AppCompatActivity {
             return insets;
         });
 
-        // Setup Dark Mode Switch
         SwitchCompat switchDarkMode = findViewById(R.id.switch_dark_mode);
         SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
         boolean isDarkMode = prefs.getBoolean(KEY_DARK_MODE, false);
@@ -53,23 +52,23 @@ public class SettingsActivity extends AppCompatActivity {
         btnLogout.setOnClickListener(v -> logout());
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
-        bottomNav.setSelectedItemId(R.id.navigation_settings);
+        bottomNav.setSelectedItemId(R.id.nav_settings);
 
         bottomNav.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();
-            if (itemId == R.id.navigation_settings) {
+            if (itemId == R.id.nav_settings) {
                 return true;
-            } else if (itemId == R.id.navigation_home) {
+            } else if (itemId == R.id.nav_home) {
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 overridePendingTransition(0, 0);
                 finish();
                 return true;
-            } else if (itemId == R.id.navigation_clients) {
+            } else if (itemId == R.id.nav_clients) {
                 startActivity(new Intent(getApplicationContext(), ClientsActivity.class));
                 overridePendingTransition(0, 0);
                 finish();
                 return true;
-            } else if (itemId == R.id.navigation_projects) {
+            } else if (itemId == R.id.nav_projects) {
                 startActivity(new Intent(getApplicationContext(), ProjectsActivity.class));
                 overridePendingTransition(0, 0);
                 finish();

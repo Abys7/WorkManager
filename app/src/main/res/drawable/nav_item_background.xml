@@ -2,7 +2,7 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_checked="true">
         <shape android:shape="rectangle">
-            <solid android:color="#20ADD8E6"/> <!-- Light blue with transparency -->
+            <solid android:color="#20005F63"/>
             <corners android:radius="16dp"/>
         </shape>
     </item>

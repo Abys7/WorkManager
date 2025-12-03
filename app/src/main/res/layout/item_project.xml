@@ -3,22 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="12dp"
+    android:layout_marginBottom="8dp"
+    android:layout_marginHorizontal="4dp"
+    android:layout_marginTop="4dp"
+    android:elevation="4dp"
     android:background="@drawable/settings_item_background"
     android:padding="16dp">
 
-    <!-- Project Icon Placeholder -->
     <View
         android:id="@+id/project_icon"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/ic_launcher_background"
-        android:backgroundTint="#D1C4E9"
+        android:backgroundTint="@color/petrol_green_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Status Indicator Dot -->
     <View
         android:id="@+id/status_indicator"
         android:layout_width="12dp"
@@ -39,7 +40,7 @@
         android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/iv_action"
         app:layout_constraintStart_toEndOf="@id/status_indicator"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -49,18 +50,18 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Start - End"
-        android:textColor="#808080"
+        android:textColor="@color/gray"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/iv_action"
         app:layout_constraintStart_toEndOf="@id/project_icon"
         app:layout_constraintTop_toBottomOf="@id/tv_project_title" />
     
-    <!-- Plus button icon as per wireframe (visual only, click handles whole item) -->
      <ImageView
+        android:id="@+id/iv_action"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:src="@android:drawable/ic_input_add"
-        app:tint="@color/black"
+        android:src="@android:drawable/ic_menu_view"
+        app:tint="@color/petrol_green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>

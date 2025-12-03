@@ -3,7 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="12dp"
+    android:layout_marginBottom="8dp"
+    android:layout_marginHorizontal="4dp"
+    android:layout_marginTop="4dp"
+    android:elevation="4dp"
     android:background="@drawable/settings_item_background"
     android:padding="16dp">
 
@@ -12,7 +15,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/ic_launcher_background"
-        android:backgroundTint="#E0E0E0"
+        android:backgroundTint="@color/light_gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -36,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Company Name"
-        android:textColor="#808080"
+        android:textColor="@color/gray"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/client_icon"

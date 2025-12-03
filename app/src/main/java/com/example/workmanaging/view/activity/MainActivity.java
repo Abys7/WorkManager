@@ -74,23 +74,23 @@ public class MainActivity extends AppCompatActivity {
         });
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
-        bottomNav.setSelectedItemId(R.id.navigation_home);
+        bottomNav.setSelectedItemId(R.id.nav_home);
 
         bottomNav.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();
-            if (itemId == R.id.navigation_home) {
+            if (itemId == R.id.nav_home) {
                 return true;
-            } else if (itemId == R.id.navigation_clients) {
+            } else if (itemId == R.id.nav_clients) {
                 startActivity(new Intent(getApplicationContext(), ClientsActivity.class));
                 overridePendingTransition(0, 0);
                 finish();
                 return true;
-            } else if (itemId == R.id.navigation_projects) {
+            } else if (itemId == R.id.nav_projects) {
                 startActivity(new Intent(getApplicationContext(), ProjectsActivity.class));
                 overridePendingTransition(0, 0);
                 finish();
                 return true;
-            } else if (itemId == R.id.navigation_settings) {
+            } else if (itemId == R.id.nav_settings) {
                 startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
                 overridePendingTransition(0, 0);
                 finish();

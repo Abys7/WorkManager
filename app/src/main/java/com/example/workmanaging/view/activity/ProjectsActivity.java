@@ -16,6 +16,7 @@ import com.example.workmanaging.R;
 import com.example.workmanaging.view.adapter.ProjectAdapter;
 import com.example.workmanaging.viewmodel.ProgettoViewModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class ProjectsActivity extends AppCompatActivity {
 
@@ -44,9 +45,11 @@ public class ProjectsActivity extends AppCompatActivity {
         }
 
         ImageButton btnProfile = findViewById(R.id.profile_icon);
-        btnProfile.setOnClickListener(v -> {
-            startActivity(new Intent(this, AccountActivity.class));
-        });
+        if (btnProfile != null) {
+            btnProfile.setOnClickListener(v -> {
+                startActivity(new Intent(this, AccountActivity.class));
+            });
+        }
 
         RecyclerView recyclerView = findViewById(R.id.rv_projects);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -66,30 +69,30 @@ public class ProjectsActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        ImageButton btnAdd = findViewById(R.id.btn_add_project);
+        FloatingActionButton btnAdd = findViewById(R.id.btn_add_project);
         btnAdd.setOnClickListener(v -> {
             Intent intent = new Intent(ProjectsActivity.this, NewProjectActivity.class);
             startActivity(intent);
         });
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
-        bottomNav.setSelectedItemId(R.id.navigation_projects);
+        bottomNav.setSelectedItemId(R.id.nav_projects);
 
         bottomNav.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();
-            if (itemId == R.id.navigation_projects) {
+            if (itemId == R.id.nav_projects) {
                 return true;
-            } else if (itemId == R.id.navigation_home) {
+            } else if (itemId == R.id.nav_home) {
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 overridePendingTransition(0, 0);
                 finish();
                 return true;
-            } else if (itemId == R.id.navigation_clients) {
+            } else if (itemId == R.id.nav_clients) {
                 startActivity(new Intent(getApplicationContext(), ClientsActivity.class));
                 overridePendingTransition(0, 0);
                 finish();
                 return true;
-            } else if (itemId == R.id.navigation_settings) {
+            } else if (itemId == R.id.nav_settings) {
                 startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
                 overridePendingTransition(0, 0);
                 finish();

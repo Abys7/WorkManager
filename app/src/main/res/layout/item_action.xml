@@ -7,7 +7,6 @@
     android:background="@drawable/settings_item_background"
     android:padding="16dp">
 
-    <!-- Status Dot (Visible only if it's a project with status) -->
     <View
         android:id="@+id/action_status_dot"
         android:layout_width="12dp"
@@ -18,7 +17,6 @@
         app:layout_constraintStart_toStartOf="parent"
         android:visibility="gone"/>
 
-    <!-- Content Placeholder (Like wireframe image) -->
     <View
         android:id="@+id/action_image_placeholder"
         android:layout_width="match_parent"

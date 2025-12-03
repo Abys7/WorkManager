@@ -70,7 +70,6 @@ public class NewClientActivity extends AppCompatActivity {
         newClient.descrizione = desc;
 
         clienteViewModel.insert(newClient, id -> {
-            // Log the action
             UserAction action = new UserAction();
             action.userId = userId;
             action.actionType = "CREATE_CLIENT";
@@ -78,8 +77,7 @@ public class NewClientActivity extends AppCompatActivity {
             action.timestamp = new Date();
             action.title = "New Client: " + name;
             action.subtitle = company != null ? company : "";
-            // action.status is null for clients
-            
+
             userActionViewModel.insert(action);
             
             runOnUiThread(() -> {

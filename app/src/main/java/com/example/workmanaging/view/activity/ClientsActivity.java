@@ -44,10 +44,13 @@ public class ClientsActivity extends AppCompatActivity {
             return;
         }
 
+        // Gestione Profile Icon
         ImageButton btnProfile = findViewById(R.id.profile_icon);
-        btnProfile.setOnClickListener(v -> {
-            startActivity(new Intent(this, AccountActivity.class));
-        });
+        if (btnProfile != null) {
+            btnProfile.setOnClickListener(v -> {
+                startActivity(new Intent(this, AccountActivity.class));
+            });
+        }
 
         RecyclerView recyclerView = findViewById(R.id.rv_clients);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -74,23 +77,23 @@ public class ClientsActivity extends AppCompatActivity {
         });
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
-        bottomNav.setSelectedItemId(R.id.navigation_clients);
+        bottomNav.setSelectedItemId(R.id.nav_clients);
 
         bottomNav.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();
-            if (itemId == R.id.navigation_clients) {
+            if (itemId == R.id.nav_clients) {
                 return true;
-            } else if (itemId == R.id.navigation_home) {
+            } else if (itemId == R.id.nav_home) {
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 overridePendingTransition(0, 0);
                 finish();
                 return true;
-            } else if (itemId == R.id.navigation_projects) {
+            } else if (itemId == R.id.nav_projects) {
                 startActivity(new Intent(getApplicationContext(), ProjectsActivity.class));
                 overridePendingTransition(0, 0);
                 finish();
                 return true;
-            } else if (itemId == R.id.navigation_settings) {
+            } else if (itemId == R.id.nav_settings) {
                 startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
                 overridePendingTransition(0, 0);
                 finish();
