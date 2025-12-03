@@ -1,5 +1,6 @@
 package com.example.workmanaging.view.activity;
 
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.view.View;
@@ -45,6 +46,7 @@ public class ProjectDetailActivity extends AppCompatActivity {
         TextView tvDesc = findViewById(R.id.tv_project_desc_detail);
         View statusIndicator = findViewById(R.id.status_indicator);
         FloatingActionButton btnDelete = findViewById(R.id.btn_delete);
+        FloatingActionButton btnEdit = findViewById(R.id.btn_edit);
 
         progettoViewModel = new ViewModelProvider(this).get(ProgettoViewModel.class);
         clienteViewModel = new ViewModelProvider(this).get(ClienteViewModel.class);
@@ -71,7 +73,9 @@ public class ProjectDetailActivity extends AppCompatActivity {
                         case IN_CORSO: colorRes = R.color.status_in_progress; break;
                         default: colorRes = R.color.status_not_started; break;
                     }
-                    statusIndicator.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(this, colorRes)));
+                    if(statusIndicator != null) {
+                        statusIndicator.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(this, colorRes)));
+                    }
                     
                     if (p.clienteId != null) {
                         clienteViewModel.getClientsForUser(userId).observe(this, clients -> {
@@ -100,6 +104,14 @@ public class ProjectDetailActivity extends AppCompatActivity {
 
                     break;
                 }
+            }
+        });
+
+        btnEdit.setOnClickListener(v -> {
+            if (currentProject != null) {
+                Intent intent = new Intent(ProjectDetailActivity.this, NewProjectActivity.class);
+                intent.putExtra("PROJECT_ID_EDIT", currentProject.progettoId);
+                startActivity(intent);
             }
         });
 

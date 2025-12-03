@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/app_background"
     android:padding="24dp">
 
     <TextView
@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New job"
-        android:textColor="@color/black"
+        android:textColor="@color/text_primary"
         android:textSize="32sp"
         android:textStyle="bold"
         android:layout_marginTop="24dp"
@@ -36,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:text="Title"
                 android:textStyle="bold"
-                android:textColor="@color/black" />
+                android:textColor="@color/text_primary" />
             <EditText
                 android:id="@+id/et_project_title"
                 android:layout_width="match_parent"
@@ -44,7 +44,9 @@
                 android:background="@drawable/edit_text_background"
                 android:paddingHorizontal="16dp"
                 android:layout_marginTop="8dp"
-                android:hint="Enter project title" />
+                android:hint="Enter project title"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/gray" />
 
             <!-- Client Spinner -->
             <TextView
@@ -52,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:text="Client"
                 android:textStyle="bold"
-                android:textColor="@color/black"
+                android:textColor="@color/text_primary"
                 android:layout_marginTop="16dp" />
             <Spinner
                 android:id="@+id/spinner_clients"
@@ -67,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:text="Start Date"
                 android:textStyle="bold"
-                android:textColor="@color/black"
+                android:textColor="@color/text_primary"
                 android:layout_marginTop="16dp" />
             <TextView
                 android:id="@+id/tv_start_date"
@@ -78,7 +80,7 @@
                 android:layout_marginTop="8dp"
                 android:gravity="center_vertical"
                 android:text="Select Start Date"
-                android:textColor="@color/black" />
+                android:textColor="@color/text_primary" />
 
             <!-- End Date -->
             <TextView
@@ -86,7 +88,7 @@
                 android:layout_height="wrap_content"
                 android:text="End Date"
                 android:textStyle="bold"
-                android:textColor="@color/black"
+                android:textColor="@color/text_primary"
                 android:layout_marginTop="16dp" />
             <TextView
                 android:id="@+id/tv_end_date"
@@ -97,7 +99,7 @@
                 android:layout_marginTop="8dp"
                 android:gravity="center_vertical"
                 android:text="Select End Date"
-                android:textColor="@color/black" />
+                android:textColor="@color/text_primary" />
 
             <!-- Description -->
             <TextView
@@ -105,7 +107,7 @@
                 android:layout_height="wrap_content"
                 android:text="Description"
                 android:textStyle="bold"
-                android:textColor="@color/black"
+                android:textColor="@color/text_primary"
                 android:layout_marginTop="16dp" />
             <EditText
                 android:id="@+id/et_project_desc"
@@ -115,7 +117,9 @@
                 android:padding="16dp"
                 android:layout_marginTop="8dp"
                 android:gravity="top|start"
-                android:hint="Enter description" />
+                android:hint="Description"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/gray" />
 
         </LinearLayout>
     </ScrollView>

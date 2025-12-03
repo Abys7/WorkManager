@@ -1,5 +1,6 @@
 package com.example.workmanaging.view.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,6 +34,7 @@ public class ClientDetailActivity extends AppCompatActivity {
         TextView tvPhone = findViewById(R.id.tv_client_phone);
         TextView tvDesc = findViewById(R.id.tv_client_desc);
         FloatingActionButton btnDelete = findViewById(R.id.btn_delete);
+        FloatingActionButton btnEdit = findViewById(R.id.btn_edit);
 
         clienteViewModel = new ViewModelProvider(this).get(ClienteViewModel.class);
 
@@ -49,6 +51,14 @@ public class ClientDetailActivity extends AppCompatActivity {
                     tvDesc.setText(c.descrizione);
                     break;
                 }
+            }
+        });
+
+        btnEdit.setOnClickListener(v -> {
+            if (currentClient != null) {
+                Intent intent = new Intent(ClientDetailActivity.this, NewClientActivity.class);
+                intent.putExtra("CLIENT_ID_EDIT", currentClient.clienteId);
+                startActivity(intent);
             }
         });
 
