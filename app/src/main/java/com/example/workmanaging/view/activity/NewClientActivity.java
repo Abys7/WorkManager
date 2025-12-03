@@ -108,105 +108,91 @@ public class NewClientActivity extends AppCompatActivity {
     }
 
     private void saveClient() {
-        try {
-            String name = etName.getText().toString().trim();
-            String company = etCompany.getText().toString().trim();
-            String email = etEmail.getText().toString().trim();
-            String phone = etPhone.getText().toString().trim();
-            String desc = etDesc.getText().toString().trim();
+        String name = etName.getText().toString().trim();
+        String company = etCompany.getText().toString().trim();
+        String email = etEmail.getText().toString().trim();
+        String phone = etPhone.getText().toString().trim();
+        String desc = etDesc.getText().toString().trim();
 
-            if (name.isEmpty()) {
-                Toast.makeText(this, "Name is required", Toast.LENGTH_SHORT).show();
-                return;
-            }
+        if (name.isEmpty()) {
+            Toast.makeText(this, "Name is required", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-            SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
-            int userId = prefs.getInt(KEY_USER_ID, -1);
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
+        int userId = prefs.getInt(KEY_USER_ID, -1);
 
-            if (userId == -1) {
-                Toast.makeText(this, "User not logged in", Toast.LENGTH_SHORT).show();
-                return;
-            }
+        if (userId == -1) {
+            Toast.makeText(this, "User not logged in", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
 
-            String imagePath = null;
-            if (newImageUri != null) {
-                imagePath = saveImageToInternalStorage(newImageUri);
-            } else if (clientToEdit != null) {
-                imagePath = clientToEdit.img;
-            }
+        String imagePath = null;
+        if (newImageUri != null) {
+            imagePath = saveImageToInternalStorage(newImageUri);
+        } else if (clientToEdit != null) {
+            imagePath = clientToEdit.img; // Keep old image if not changed
+        }
 
-            if (editClientId != -1 && clientToEdit != null) {
-                clientToEdit.nome = name;
-                clientToEdit.azienda = company;
-                clientToEdit.email = email;
-                clientToEdit.telefono = phone;
-                clientToEdit.descrizione = desc;
-                clientToEdit.img = imagePath;
+        if (editClientId != -1 && clientToEdit != null) {
+            clientToEdit.nome = name;
+            clientToEdit.azienda = company;
+            clientToEdit.email = email;
+            clientToEdit.telefono = phone;
+            clientToEdit.descrizione = desc;
+            clientToEdit.img = imagePath;
 
-                clienteViewModel.update(clientToEdit);
+            clienteViewModel.update(clientToEdit);
 
+            UserAction action = new UserAction();
+            action.userId = userId;
+            action.actionType = "UPDATE_CLIENT";
+            action.referenceId = clientToEdit.clienteId;
+            action.timestamp = new Date();
+            action.title = "Updated Client: " + name;
+            action.subtitle = company != null ? company : "";
+            userActionViewModel.insert(action);
+
+            Toast.makeText(this, "Client updated", Toast.LENGTH_SHORT).show();
+            finish();
+
+        } else {
+            Cliente newClient = new Cliente();
+            newClient.userId = userId;
+            newClient.nome = name;
+            newClient.azienda = company;
+            newClient.email = email;
+            newClient.telefono = phone;
+            newClient.descrizione = desc;
+            newClient.img = imagePath;
+
+            clienteViewModel.insert(newClient, id -> {
                 UserAction action = new UserAction();
                 action.userId = userId;
-                action.actionType = "UPDATE_CLIENT";
-                action.referenceId = clientToEdit.clienteId;
+                action.actionType = "CREATE_CLIENT";
+                action.referenceId = (int) id;
                 action.timestamp = new Date();
-                action.title = "Updated Client: " + name;
+                action.title = "New Client: " + name;
                 action.subtitle = company != null ? company : "";
 
                 userActionViewModel.insert(action);
 
                 runOnUiThread(() -> {
-                    Toast.makeText(this, "Client updated", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Client saved", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(NewClientActivity.this, ClientDetailActivity.class);
-                    intent.putExtra("CLIENT_ID", clientToEdit.clienteId);
+                    intent.putExtra("CLIENT_ID", (int) id);
                     startActivity(intent);
                     finish();
                 });
-
-            } else {
-                Cliente newClient = new Cliente();
-                newClient.userId = userId;
-                newClient.nome = name;
-                newClient.azienda = company;
-                newClient.email = email;
-                newClient.telefono = phone;
-                newClient.descrizione = desc;
-                newClient.img = imagePath;
-
-                clienteViewModel.insert(newClient, id -> {
-                    try {
-                        UserAction action = new UserAction();
-                        action.userId = userId;
-                        action.actionType = "CREATE_CLIENT";
-                        action.referenceId = (int) id;
-                        action.timestamp = new Date();
-                        action.title = "New Client: " + name;
-                        action.subtitle = company != null ? company : "";
-
-                        userActionViewModel.insert(action);
-
-                        runOnUiThread(() -> {
-                            Toast.makeText(this, "Client saved", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(NewClientActivity.this, ClientDetailActivity.class);
-                            intent.putExtra("CLIENT_ID", (int) id);
-                            startActivity(intent);
-                            finish();
-                        });
-                    } catch (Exception ex) {
-                        ex.printStackTrace();
-                        runOnUiThread(() -> Toast.makeText(this, "Error while saving client action", Toast.LENGTH_SHORT).show());
-                    }
-                });
-            }
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            Toast.makeText(this, "Failed to save client: " + ex.getMessage(), Toast.LENGTH_LONG).show();
+            });
         }
     }
 
     private String saveImageToInternalStorage(Uri uri) {
         try {
             InputStream inputStream = getContentResolver().openInputStream(uri);
+            // Generate a unique filename to avoid conflicts
             String fileName = "client_" + UUID.randomUUID().toString() + ".jpg";
             File file = new File(getFilesDir(), fileName);
             FileOutputStream outputStream = new FileOutputStream(file);
@@ -220,20 +206,18 @@ public class NewClientActivity extends AppCompatActivity {
             outputStream.close();
             inputStream.close();
 
+            // When editing, delete old image file if it exists and is different
             if (clientToEdit != null && clientToEdit.img != null && !clientToEdit.img.isEmpty()) {
                 try {
-                    String oldPath = Uri.parse(clientToEdit.img).getPath();
-                    if (oldPath != null) {
-                        File oldFile = new File(oldPath);
-                        if (oldFile.exists()) {
-                            oldFile.delete();
-                        }
+                    File oldFile = new File(Uri.parse(clientToEdit.img).getPath());
+                    if (oldFile.exists()) {
+                        oldFile.delete();
                     }
-                } catch (Exception ex) {
-                    ex.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
-
+            
             return Uri.fromFile(file).toString();
 
         } catch (Exception e) {
