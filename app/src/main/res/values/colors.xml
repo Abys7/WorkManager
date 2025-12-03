@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Base Colors -->
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
     
-    <!-- Verde petrolio palette -->
+    <!-- Petrol Green Palette (Accenti fissi) -->
     <color name="petrol_green">#005F63</color>
     <color name="petrol_green_dark">#00363A</color>
     <color name="petrol_green_light">#368B90</color>
 
-    <!-- colori neutri -->
+    <!-- Neutral Colors -->
     <color name="gray">#757575</color>
     <color name="light_gray">#F5F5F5</color>
     <color name="dark_gray">#424242</color>
+
+    <!-- Semantic Colors (Light Mode Default) -->
+    <color name="app_background">@color/white</color>
+    <color name="nav_background">@color/white</color>
+    <color name="card_background">@color/white</color>
+    <color name="text_primary">@color/black</color>
+    <color name="icon_color">@color/black</color>
 
     <!-- Theme Colors -->
     <color name="colorPrimary">@color/petrol_green</color>
@@ -22,9 +30,9 @@
     <color name="colorSecondaryVariant">@color/petrol_green_dark</color>
     <color name="colorOnSecondary">@color/black</color>
     
+    <!-- Nav Item Color Base (Legacy ref) -->
     <color name="nav_item_color_base">@color/petrol_green</color>
 
-    <!-- colori per compatibilita -->
     <color name="my_black">@color/black</color>
     <color name="my_white">@color/white</color>
 </resources>

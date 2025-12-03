@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/app_background"
     android:padding="24dp">
 
     <TextView
@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Client"
-        android:textColor="@color/black"
+        android:textColor="@color/text_primary"
         android:textSize="32sp"
         android:textStyle="bold"
         android:layout_marginTop="24dp"
@@ -36,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:text="Name"
                 android:textStyle="bold"
-                android:textColor="@color/black" />
+                android:textColor="@color/text_primary" />
             <EditText
                 android:id="@+id/et_client_name"
                 android:layout_width="match_parent"
@@ -44,6 +44,8 @@
                 android:background="@drawable/edit_text_background"
                 android:paddingHorizontal="16dp"
                 android:layout_marginTop="8dp"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/gray"
                 android:hint="Enter client name" />
 
             <!-- Company -->
@@ -52,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:text="Company"
                 android:textStyle="bold"
-                android:textColor="@color/black"
+                android:textColor="@color/text_primary"
                 android:layout_marginTop="16dp" />
             <EditText
                 android:id="@+id/et_client_company"
@@ -61,6 +63,8 @@
                 android:background="@drawable/edit_text_background"
                 android:paddingHorizontal="16dp"
                 android:layout_marginTop="8dp"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/gray"
                 android:hint="Enter company name" />
 
             <!-- Email -->
@@ -69,7 +73,7 @@
                 android:layout_height="wrap_content"
                 android:text="Email"
                 android:textStyle="bold"
-                android:textColor="@color/black"
+                android:textColor="@color/text_primary"
                 android:layout_marginTop="16dp" />
             <EditText
                 android:id="@+id/et_client_email"
@@ -79,6 +83,8 @@
                 android:paddingHorizontal="16dp"
                 android:layout_marginTop="8dp"
                 android:inputType="textEmailAddress"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/gray"
                 android:hint="Enter email" />
 
             <!-- Phone -->
@@ -87,7 +93,7 @@
                 android:layout_height="wrap_content"
                 android:text="Phone"
                 android:textStyle="bold"
-                android:textColor="@color/black"
+                android:textColor="@color/text_primary"
                 android:layout_marginTop="16dp" />
             <EditText
                 android:id="@+id/et_client_phone"
@@ -97,6 +103,8 @@
                 android:paddingHorizontal="16dp"
                 android:layout_marginTop="8dp"
                 android:inputType="phone"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/gray"
                 android:hint="Enter phone number" />
 
             <!-- Description -->
@@ -105,7 +113,7 @@
                 android:layout_height="wrap_content"
                 android:text="Description"
                 android:textStyle="bold"
-                android:textColor="@color/black"
+                android:textColor="@color/text_primary"
                 android:layout_marginTop="16dp" />
             <EditText
                 android:id="@+id/et_client_desc"
@@ -115,6 +123,8 @@
                 android:padding="16dp"
                 android:layout_marginTop="8dp"
                 android:gravity="top|start"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/gray"
                 android:hint="Enter description" />
 
         </LinearLayout>

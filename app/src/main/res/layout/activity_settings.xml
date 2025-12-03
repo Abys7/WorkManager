@@ -4,9 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/app_background">
 
+    <!-- Header Profile Icon Placeholder -->
 
+    <!-- Dark Mode Toggle -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_dark_mode"
         android:layout_width="match_parent"
@@ -24,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Modalità scura"
-            android:textColor="@color/black"
+            android:textColor="@color/text_primary"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -41,6 +43,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <!-- Logout Button -->
     <FrameLayout
         android:id="@+id/btn_logout"
         android:layout_width="wrap_content"
@@ -65,7 +68,7 @@
         android:id="@+id/bottom_navigation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@color/nav_background"
         app:menu="@menu/bottom_nav_menu"
         app:labelVisibilityMode="labeled"
         app:itemIconTint="@color/nav_item_color"

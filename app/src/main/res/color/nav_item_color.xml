@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_checked="true" android:color="@color/nav_item_color_base" />
-    <item android:color="?android:attr/textColorPrimary" />
+    <!-- Stato Selezionato: Verde Petrolio (Accento) -->
+    <item android:state_checked="true" android:color="@color/petrol_green" />
+    
+    <!-- Stato Default: Colore Icona Semantico (Nero in Light, Bianco in Dark) -->
+    <item android:color="@color/icon_color" />
 </selector>

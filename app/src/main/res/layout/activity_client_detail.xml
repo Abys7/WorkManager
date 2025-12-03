@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/app_background"
     android:padding="24dp">
 
     <TextView
@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Client Details"
-        android:textColor="@color/black"
+        android:textColor="@color/text_primary"
         android:textSize="32sp"
         android:textStyle="bold"
         android:layout_marginTop="24dp"
@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:text="Name"
                 android:textStyle="bold"
-                android:textColor="@color/black" />
+                android:textColor="@color/text_primary" />
             <TextView
                 android:id="@+id/tv_client_name"
                 android:layout_width="match_parent"
@@ -44,14 +44,14 @@
                 android:background="@drawable/settings_item_background"
                 android:layout_marginTop="4dp"
                 android:text="Client Name"
-                android:textColor="@color/black"/>
+                android:textColor="@color/text_primary"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Company"
                 android:textStyle="bold"
-                android:textColor="@color/black"
+                android:textColor="@color/text_primary"
                 android:layout_marginTop="16dp" />
             <TextView
                 android:id="@+id/tv_client_company"
@@ -61,14 +61,14 @@
                 android:background="@drawable/settings_item_background"
                 android:layout_marginTop="4dp"
                 android:text="Company"
-                android:textColor="@color/black"/>
+                android:textColor="@color/text_primary"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Email"
                 android:textStyle="bold"
-                android:textColor="@color/black"
+                android:textColor="@color/text_primary"
                 android:layout_marginTop="16dp" />
             <TextView
                 android:id="@+id/tv_client_email"
@@ -78,14 +78,14 @@
                 android:background="@drawable/settings_item_background"
                 android:layout_marginTop="4dp"
                 android:text="Email"
-                android:textColor="@color/black"/>
+                android:textColor="@color/text_primary"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Phone"
                 android:textStyle="bold"
-                android:textColor="@color/black"
+                android:textColor="@color/text_primary"
                 android:layout_marginTop="16dp" />
             <TextView
                 android:id="@+id/tv_client_phone"
@@ -95,14 +95,14 @@
                 android:background="@drawable/settings_item_background"
                 android:layout_marginTop="4dp"
                 android:text="Phone"
-                android:textColor="@color/black"/>
+                android:textColor="@color/text_primary"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Description"
                 android:textStyle="bold"
-                android:textColor="@color/black"
+                android:textColor="@color/text_primary"
                 android:layout_marginTop="16dp" />
             <TextView
                 android:id="@+id/tv_client_desc"
@@ -112,7 +112,7 @@
                 android:background="@drawable/settings_item_background"
                 android:layout_marginTop="4dp"
                 android:text="Description"
-                android:textColor="@color/black"/>
+                android:textColor="@color/text_primary"/>
 
         </LinearLayout>
     </ScrollView>
@@ -122,8 +122,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@android:drawable/ic_menu_delete"
-        app:backgroundTint="@color/white"
-        app:tint="@color/black"
+        app:backgroundTint="@color/petrol_green"
+        app:tint="@color/white"
         android:layout_margin="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

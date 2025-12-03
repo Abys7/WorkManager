@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Semantic Colors (Dark Mode) -->
+    <color name="app_background">#121212</color>
+    <color name="nav_background">#1E1E1E</color>
+    <color name="card_background">#2C2C2C</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="icon_color">#FFFFFF</color>
+</resources>

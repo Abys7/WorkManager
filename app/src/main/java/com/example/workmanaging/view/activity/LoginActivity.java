@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -24,10 +25,20 @@ public class LoginActivity extends AppCompatActivity {
     private UserViewModel userViewModel;
     private static final String PREFS_NAME = "WorkManagingPrefs";
     private static final String KEY_USER_ID = "userId";
+    private static final String KEY_DARK_MODE = "darkMode";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Apply Dark Mode Preference
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, 0);
+        boolean isDarkMode = prefs.getBoolean(KEY_DARK_MODE, false); // Default false = Light Mode
+        if (isDarkMode) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
 
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         int userId = settings.getInt(KEY_USER_ID, -1);
